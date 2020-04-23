@@ -1,0 +1,255 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="demo.css">
+    <link rel="stylesheet" href="footer-distributed-with-address-and-phones.css">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+    <style>
+
+        body,html
+        {
+            margin: 0;
+        }
+        h2
+        {
+            margin: 0;
+            padding-left: 5%;
+        }
+        form
+        {
+            width: 30%;
+            float: left;
+            margin-left: 5%;
+        }
+        .hero-image {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdn.hipwallpaper.com/i/54/23/tA1GSE.jpg');
+            height: 30%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+
+        }
+        li a:hover
+        {
+            background-color: rgb(179, 200, 201);
+        }
+        li a:active
+        {
+            background-color: rgb(179, 200, 201);
+        }
+        #sidebar
+        {
+            background-color:	#6495ED;
+            opacity: 0.8;
+            width: 100%;
+            height: 55px;
+            overflow: hidden;
+        }
+        #sidebar ul
+        {
+            list-style: none;
+            -webkit-margin-before: 0em;
+            -webkit-margin-after: 0em;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+            -webkit-padding-start: 00px;
+            min-width: 600px;
+
+        }
+        h1
+        {
+            float: left;
+            color:white;
+            margin:0px 0px 0px 10px;
+            padding: 5px;
+        }
+
+        .Top
+        {
+            position: sticky;
+        }
+
+        #sidebar li
+        {
+            margin: 0px;
+            padding: 0px;
+            float: right;
+        }
+        #sidebar li a
+        {
+            margin: 0 auto;
+            color: white;
+            text-decoration:none;
+            padding: 20px;
+            width: 100%;
+            display: block;
+            box-sizing: border-box;
+        }
+        #sidebar input
+        {
+            padding:5px;
+            margin-top: 5%;
+            margin-right:5px;
+            margin-left:5px;
+            width: 70%;
+        }
+        .f
+        {
+            float: right;
+            padding-right: 25%;
+        }
+        .btn
+        {
+            opacity: 0.8;
+            background-color:#6495ED;
+            color: white;
+            font-size: 16px;
+            padding: 16px 30px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .text
+        {
+            font-size: 1.5em;
+            padding: 3px;
+            display: inline-block;
+            border-radius: 9em;
+            padding: 5px;
+        }
+
+        .text:hover
+        {
+            background: 	#6495ED;
+        }
+        label
+        {
+            font-size: 20px;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+<div id="sidebar" class="Top">
+    <h1>JAAGO</h1>
+    <ul>
+        <li><input type="search" placeholder="Search"></li>
+        <li id="Contact us"><a href="/Contact_us">Contact</a></li>
+        <li id="About"><a href="#second">About us</a></li>
+        <li><a href="#third">Objectives</a></li>
+        <li><a href="/Video_catalog">Videos</a></li>
+        <li><a href="/Index">Lets talk</a></li>
+        <%if(!currentUser){%>
+            <li><a href="/Sign_up">Sign up</a></li>
+            <li><a href="/Sign_in">Sign in</a></li>
+        <%} else{%>
+            <li><a href="/Log_out">Log out</a></li>
+        <li><a href="#"><i class="fas fa-user"></i><%=currentUser.username%></a></li>
+        <%}%>
+    </ul>
+</div>
+
+<div class="hero-image"></div>
+<h2 class="Jumbotron" style="width: 100%; margin: 0;">Contact Us</h2>
+<br>
+<div class="row">
+
+
+    <form action="/contact_us/send" method="POST">
+        <div class="form-group">
+            <label for="usr">Email:</label>
+            <input type="Email" class="form-control text" name="user" id="usr">
+        </div>
+        <div class="form-group">
+            <label for="hg">Subject:</label>
+            <input type="text" class="form-control text" name="Subject" id="pwd">
+        </div>
+
+
+        <div class="form-group">
+            <label for="comment">Comment:</label>
+            <textarea class="form-control" rows="5" id="comment" name="Complaint"></textarea>
+        </div>
+        <a href="#second"><button class="btn"><strong> Submit</strong></button></a>
+    </form>
+
+    <div class="f">
+        <img src="img-01.png">
+    </div>
+</div>
+<footer class="footer-distributed">
+
+    <div class="footer-left">
+
+        <h3>Company<span>logo</span></h3>
+
+        <p class="footer-links">
+            <a href="#">Home</a>
+            ·
+            <a href="#">Blog</a>
+            ·
+            <a href="#">Pricing</a>
+            ·
+            <a href="#">About</a>
+            ·
+            <a href="#">Faq</a>
+            ·
+            <a href="#">Contact</a>
+        </p>
+
+        <p class="footer-company-name">Company Name &copy; 2015</p>
+    </div>
+
+    <div class="footer-center">
+
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>21 Revolution Street</span> Paris, France</p>
+        </div>
+
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>+1 555 123456</p>
+        </div>
+
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:support@company.com">support@company.com</a></p>
+        </div>
+
+    </div>
+
+    <div class="footer-right">
+
+        <p class="footer-company-about">
+            <span>About the company</span>
+            Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+        </p>
+
+        <div class="footer-icons">
+
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+
+</body>
+</html>
+

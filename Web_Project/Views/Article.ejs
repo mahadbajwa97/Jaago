@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="/demo.css">
+    <link rel="stylesheet" href="/footer-distributed-with-address-and-phones.css">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/blogStyle.css">
+    <style>
+
+        body, html {
+            margin: 0;
+            background-image: url('/background_blur.png');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: sticky;
+        }
+
+        .thumbnail {
+            padding: 0px;
+        }
+
+        .panel {
+            position: relative;
+        }
+
+        .panel>.panel-heading:after,
+        .panel>.panel-heading:before {
+            position: absolute;
+            top: 11px;
+            left: -16px;
+            right: 100%;
+            width: 0;
+            height: 0;
+            display: block;
+            content: " ";
+            border-color: transparent;
+            border-style: solid solid outset;
+            pointer-events: none;
+        }
+
+        .panel>.panel-heading:after {
+            border-width: 7px;
+            border-right-color: #f7f7f7;
+            margin-top: 1px;
+            margin-left: 2px;
+        }
+
+        .panel>.panel-heading:before {
+            border-right-color: #ddd;
+            border-width: 8px;
+        }
+
+        li a:hover {
+            background-color: rgb(179, 200, 201);
+        }
+
+        li a:active {
+            background-color: rgb(179, 200, 201);
+        }
+
+        #sidebar {
+            background-color: #6495ED;
+            opacity: 0.8;
+            width: 100%;
+            height: 55px;
+            z-index: 100;
+            position: sticky;
+            overflow: hidden;
+        }
+
+        #sidebar ul {
+            list-style: none;
+            -webkit-margin-before: 0em;
+            -webkit-margin-after: 0em;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+            -webkit-padding-start: 00px;
+            overflow: hidden;
+
+        }
+
+        #sidebar h1 {
+            float: left;
+            color: white;
+            margin: 0;
+            padding: 0px;
+            font: normal 36px 'Cookie', cursive;
+        }
+
+        span {
+            padding-left: 10px;
+        }
+
+        .Top {
+            position: sticky;
+        }
+
+        #sidebar li {
+            margin: 0px;
+            padding: 0px;
+            float: right;
+        }
+
+        #sidebar li a {
+            margin: 0 auto;
+            color: white;
+            text-decoration: none;
+            padding: 18px;
+            width: 100%;
+            display: block;
+            box-sizing: border-box;
+        }
+
+        input {
+            padding: 5px;
+            margin-top: 5%;
+            margin-right: 5px;
+            margin-left: 5px;
+        }
+
+        .btn {
+            float: left;
+            padding-bottom: 10px;
+        }
+
+        #main {
+            margin-left: 0;
+
+        }
+
+        span {
+            padding-left: 5px;
+        }
+
+        .blog-card {
+            width: 250px;
+            height: 400px;
+            position: relative;
+            margin: 5%;
+            float: left;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .blog-card.spring-fever {
+            background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1765/bg-blog-card.jpg) no-repeat;
+        }
+
+        .blog-card .color-overlay {
+            /* Rectangle 11: */
+            background: rgba(84, 104, 110, 0.4);
+            width: 350px;
+            height: 500px;
+            position: absolute;
+            z-index: 10;
+            top: 0;
+            left: 0;
+            transition: background 0.3s cubic-bezier(0.33, 0.66, 0.66, 1);
+        }
+
+        .blog-card .gradient-overlay {
+            /* bg-gradient: */
+            background-image: -webkit-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.6) 21%);
+            background-image: -moz-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.6) 21%);
+            background-image: -o-linear-gradient(transparent 0%, rgba(0, 0, 0, 0.6) 21%);
+            background-image: linear-gradient(transparent 0%, rgba(0, 0, 0, 0.6) 21%);
+            width: 350px;
+            height: 500px;
+            position: absolute;
+            top: 350px;
+            left: 0;
+            z-index: 15;
+        }
+
+        .blog-card:hover .card-info {
+            opacity: 1;
+            bottom: 120px;
+        }
+
+        .blog-card:hover .color-overlay {
+            background: rgba(84, 104, 110, 0.8);
+        }
+
+        .title-content {
+            text-align: center;
+            margin: 70px 0 0 0;
+            position: absolute;
+            z-index: 20;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        h3 {
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            color: #9CC9E3;
+            font-family: 'Roboto', sans-serif;
+            margin-bottom: 0;
+        }
+
+        hr {
+            width: 50px;
+            height: 3px;
+            margin: 20px auto;
+            border: 0;
+            background: #D0BB57;
+        }
+
+        .intro {
+            width: 170px;
+            margin: 0 auto;
+            color: #DCE3E7;
+            font-family: 'Droid Serif', serif;
+            font-size: 13px;
+            font-style: italic;
+            line-height: 18px;
+        }
+
+        .card-info {
+            width: 100%;
+            position: absolute;
+            bottom: 100px;
+            left: 0;
+            margin: 0 auto;
+            padding: 0 50px;
+            color: #DCE3E7;
+            font-family: 'Droid Serif', serif;
+            font-size: 16px;
+            line-height: 24px;
+            z-index: 20;
+            opacity: 0;
+            transition: bottom 0.3s, opacity 0.3s cubic-bezier(0.33, 0.66, 0.66, 1);
+        }
+
+        .utility-info {
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            z-index: 20;
+        }
+
+        .utility-list {
+            list-style-type: none;
+            margin: 0 0 30px 20px;
+            padding: 0;
+            width: 100%;
+        }
+
+        .utility-list li {
+            margin: 0 15px 0 0;
+            padding: 0 0 0 22px;
+            display: inline-block;
+            color: #DCE3E7;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .utility-list li.comments {
+            background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1765/icon-chat.svg) no-repeat 0 0.1em;
+        }
+
+        .utility-list li.date {
+            background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1765/icon-calendar.svg) no-repeat 0 0.1em;
+        }
+
+        form {
+            width: 30%;
+
+            margin-left: 20%;
+        }
+
+        .text {
+            font-size: 1.5em;
+            padding: 3px;
+            display: inline-block;
+            border-radius: 9em;
+            padding: 5px;
+        }
+
+        .text:hover {
+            background: #6495ED;
+        }
+
+        label {
+            color: azure;
+            font-size: 20px;
+        }
+
+        .btn {
+
+            opacity: 0.8;
+            background-color: #6495ED;
+            color: white;
+            font-size: 16px;
+            padding: 16px 30px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            text-align: center;
+            display: inline-block;
+        }
+        .hidden
+        {
+            display: none;
+        }
+        .show
+        {
+            display: block;
+        }
+    </style>
+    <script>
+        function w3_open() {
+            document.getElementById("main").style.marginLeft = "25%";
+            document.getElementById("mySidebar").style.width = "25%";
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("openNav").style.display = 'none';
+        }
+        function w3_close() {
+            document.getElementById("main").style.marginLeft = "0%";
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("openNav").style.display = "inline-block";
+        }
+    </script>
+</head>
+
+<body>
+<div class="w3-sidebar w3-bar-block w3-card w3-animate-left fix" style="display:none" id="mySidebar">
+    <button class="w3-bar-item w3-button w3-large" onclick="w3_close()">Close &times;</button>
+    <a href="#" class="w3-bar-item w3-button">
+        <div class="blog-card spring-fever">
+            <div class="title-content">
+                <h3>SPRING FEVER</h3>
+                <hr />
+                <div class="intro">Yllamco laboris nisi ut aliquip ex ea commodo.</div>
+            </div>
+            <!-- /.title-content -->
+            <div class="card-info">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim.
+            </div>
+            <!-- /.card-info -->
+            <div class="utility-info">
+                <ul class="utility-list">
+                    <li class="comments">12</li>
+                    <li class="date">03.12.2015</li>
+                </ul>
+            </div>
+            <!-- /.utility-info -->
+            <!-- overlays -->
+            <div class="gradient-overlay"></div>
+            <div class="color-overlay"></div>
+        </div>
+        <!-- /.blog-card -->
+    </a>
+    <a href="#" class="w3-bar-item w3-button">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button">Link 3</a>
+</div>
+<div id="main">
+    <div id="sidebar" class="Top">
+        <h1>
+            <button id="openNav" class="w3-button  w3-xlarge btn" onclick="w3_open()">&#9776;</button>
+            <span>JAAGO</span>
+        </h1>
+        <ul>
+            <li><input type="search" placeholder="Search"></li>
+            <li id="Contact us"><a href="/Contact_us">Contact</a></li>
+            <li id="About"><a href="#second">About us</a></li>
+            <li><a href="#third">Objectives</a></li>
+            <li><a href="/Video_catalog">Videos</a></li>
+            <li><a href="/Index">Lets talk</a></li>
+            <%if(!currentUser){%>
+                <li><a href="/Sign_up">Sign up</a></li>
+                <li><a href="/Sign_in">Sign in</a></li>
+            <%} else{%>
+                <li><a href="/Log_out">Log out</a></li>
+            <li><a href="#"><i class="fas fa-user"></i><%=currentUser.username%></a></li>
+            <%}%>
+        </ul>
+    </div>
+
+
+    <%if(  currentUser && blog.Author.id.equals(currentUser._id)){%>
+    <a href="/article/<%=blog._id%>/edit" class="btn btn-success bar" >Edit</a>
+    <%}%>
+
+
+    <div class="bar">
+        <p class=""> <%=blog.Created%> </p>
+        <h1><%= blog.title %></h1>
+        <p class="left">
+            <%=blog.Body%>
+
+        </p>
+        <p><i>Submitted by : <%=blog.Author.Username%></i></p>
+
+    </div>
+
+    <a id="Comment" class="btn btn-success bar" >Add a New Comment</a>
+
+    <div class="well bar">
+        <%blog.Comments.forEach(function(comment) {%>
+         <div class="well">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <strong> <%=comment.Author.Username%></strong>
+                    <p> <%=comment.text%></p>
+
+                </div>
+            </div>
+         </div>
+        <%})%>
+        </div>
+
+    </div>
+
+     <form class="hidden" action="/article/<%=blog._id%>/comment" method="POST" >
+        <div class="form-group">
+            <label for="comment">Comment:</label>
+            <textarea class="form-control" rows="5" name="text"></textarea>
+        </div>
+       <input type="Submit" value="Submit" class="btn">
+    </form>
+</div>
+
+</div>
+<script>
+    $(document).ready(function () {
+       $("#Comment").click(function () {
+           $("form").toggleClass("hidden");
+       });
+    });
+</script>
+
+<footer class="footer-distributed">
+
+    <div class="footer-left">
+
+        <h3>
+            <span>Jaago</span>
+        </h3>
+
+        <p class="footer-links">
+            <a href="#">Home</a>
+            ·
+            <a href="#">Blog</a>
+            ·
+            <a href="#">Pricing</a>
+            ·
+            <a href="#">About</a>
+            ·
+            <a href="#">Faq</a>
+            ·
+            <a href="#">Contact</a>
+        </p>
+
+        <p class="footer-company-name">Company Name &copy; 2015</p>
+    </div>
+
+    <div class="footer-center">
+
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p>
+                <span>National University of Sciences and Technology</span> Islamabad, Pakistan</p>
+        </div>
+
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>+1 555 123456</p>
+        </div>
+
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p>
+                <a href="mailto:support@company.com">support@company.com</a>
+            </p>
+        </div>
+
+    </div>
+
+    <div class="footer-right">
+
+        <p class="footer-company-about">
+            <span>About the company</span>
+            Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+        </p>
+
+        <div class="footer-icons">
+
+            <a href="#">
+                <i class="fa fa-facebook"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-twitter"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-linkedin"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-github"></i>
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+.bar 
+{
+	padding-left: 2%;
+	padding-right: 2%;
+	border: 6px solid #bdc3c7;
+	width: 60%;
+	margin-left:20%;
+	margin-top: 5%;
+ }
+.date
+{
+	color: #3498db; 
+}
+body
+{
+	background-image: url(css/background_blur.png);
+	margin: 0;
+}
+.left
+{
+    padding-left: 4px;
+	border-left: 6px solid #bdc3c7;
+	font: bold;
+	font-size: 15px;
+}
+
+.left_bullet
+{
+	padding-left: 4px;
+	
+	
+}
+
