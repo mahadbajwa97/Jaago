@@ -1,0 +1,171 @@
+<html>
+
+<head>
+    <title>
+        user
+    </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+          crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" href="/style.css">
+
+
+
+    <style>
+        .ad-left {
+
+            float: left;
+            background-color: aliceblue;
+            width:30%;
+            border-radius: 30px;
+            padding:10px;
+            margin:10px;
+
+
+        }
+
+        .ad-right {
+            float: right;
+            margin-left: 10px;
+            width: 70%;
+            border-radius: 30px;
+            padding: 10px;
+            margin:10px;
+            background-color: aquamarine;
+        }
+
+        .entire-thing {
+            width: 100%;
+            padding: 7px;
+            display: inline-flex;
+        }
+        #prImg{
+            border-radius: 50%;
+            width: 60% ;
+            height: 250px;
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+        }
+        #aboutInfo{
+            margin-left: auto;
+            margin-right: auto;
+            display: block;
+            align-content: center;
+
+        }
+        #bt{
+
+            margin-left: 5%;
+            margin-top :1%;
+            background-color: transparent;
+
+        }
+        #bt:focus { outline: none; }
+
+        .container {
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .bar1, .bar2, .bar3 {
+            width: 35px;
+            height: 5px;
+            background-color: #333;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        .change .bar1 {
+            -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+            transform: rotate(-45deg) translate(-9px, 6px);
+        }
+
+        .change .bar2 {opacity: 0;}
+
+        .change .bar3 {
+            -webkit-transform: rotate(45deg) translate(-8px, -8px);
+            transform: rotate(45deg) translate(-8px, -8px);
+        }
+    </style>
+</head>
+
+<body>
+<script>
+    $(document).ready(function () {
+        $("#bt").click(function () {
+            $(".ad-left").toggle(1000);
+        });
+    });
+    function myFunction(x) {
+        x.classList.toggle("change");
+    }
+</script>
+
+<div id="sidebar" class="Top">
+    <h1 class="logo">Jaago</h1>
+    <ul>
+        <li><input type="search" placeholder="Search"></li>
+        <li id="Contact us"><a href="/Contact_us">Contact</a></li>
+        <li id="About"><a href="#second">About us</a></li>
+        <li><a href="#third">Objectives</a></li>
+        <li><a href="/Video_catalog">Videos</a></li>
+        <li><a href="/Index">Lets talk</a></li>
+        <%if(!currentUser){%>
+            <li><a href="/Sign_up">Sign up</a></li>
+            <li><a href="/Sign_in">Sign in</a></li>
+        <%} else{%>
+            <li><a href="/Log_out">Log out</a></li>
+        <%}%>
+    </ul>
+</div>
+
+<button id="bt" type="button">
+    <div class="container" onclick="myFunction(this)">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+    </div>
+</button>
+
+<div class="entire-thing">
+
+    <div class="">
+        <img id="" src="<%=User[0].Image%>">
+        <div style="align-content:center">
+            <ul>
+                <p>
+                <h3> User Name: <%=User[0].username%></h3>
+                <h3>name: <%=User[0].FullName%> </h3>
+                <h3>Contact details: <%=User[0].ContactNumber%> </h3>
+                </p>
+
+            </ul>
+        </div>
+    </div>
+    <div class="ad-right">
+        INFO about the user
+        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+        standard
+        dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
+        specimen
+        book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining
+        essentially
+        unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+        and
+        more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        <Lorem>ed
+
+        </Lorem>
+    </div>
+    <div class="clear"></div>
+</div>
+</div>
+
+
+
+</body>
+
+</html>

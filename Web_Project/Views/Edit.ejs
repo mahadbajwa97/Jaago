@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form</title>
+    <link rel="stylesheet" type="text/css" href="/login.css">
+    <link rel="stylesheet" href="/demo.css">
+    <link rel="stylesheet" href="/footer-distributed-with-address-and-phones.css">
+
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+    <style type="text/css"  >
+
+    </style>
+</head>
+<body>
+<div id="sidebar" class="Top">
+    <h1 class="logo"><strong>Jaago</strong></h1>
+    <ul>
+        <li><input type="search" placeholder="Search"></li>
+        <li id="Contact us"><a href="/Contact_us">Contact</a></li>
+        <li id="About"><a href="#second">About us</a></li>
+        <li><a href="#third">Objectives</a></li>
+        <li><a href="/Video_catalog">Videos</a></li>
+        <%if(!currentUser){%>
+            <li><a href="/Sign_up">Sign up</a></li>
+            <li><a href="/Sign_in">Sign in</a></li>
+        <%} else{%>
+            <li><a href="/Log_out">Log out</a></li>
+        <li><a href="#"><i class="fas fa-user"></i><%=currentUser.username%></a></li>
+        <%}%>
+    </ul>
+</div>
+
+<div class="login-box" style="width:60%; height: 500px;">
+    <img src="http://simpleicon.com/wp-content/uploads/blog.svg" class="avatar">
+    <h1>Edit a blog: <%=Blog.title%></h1>
+    <form action="/article/<%=Blog._id%>?_method=PUT" method="POST">
+        <p>Title</p>
+        <input type="text" name="blog[title]" placeholder="Enter Title" value="<%=Blog.title%>" >
+        <p>Introduction</p>
+        <input type="text" name="blog[intro]" placeholder="Enter Introduction" value="<%=Blog.intro%>">
+        <textarea name="blog[Body]" placeholder="Enter your blog text here" rows="10" ><%=Blog.Body%></textarea>
+        <input type="submit"  value="Submit">
+    </form>
+</div>
+<footer class="footer-distributed">
+
+    <div class="footer-left">
+
+        <h3>Jaago</h3>
+
+        <p class="footer-links">
+            <a href="#">Home</a>
+            ·
+            <a href="#">Blog</a>
+            ·
+            <a href="#">Pricing</a>
+            ·
+            <a href="#">About</a>
+            ·
+            <a href="#">Faq</a>
+            ·
+            <a href="#">Contact</a>
+        </p>
+
+        <p class="footer-company-name">Company Name &copy; 2015</p>
+    </div>
+
+    <div class="footer-center">
+
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>National University of Sciences and Technology (NUST)</span> Islamabad, Pakistan</p>
+        </div>
+
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>+1 555 123456</p>
+        </div>
+
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:support@company.com">support@company.com</a></p>
+        </div>
+
+    </div>
+
+    <div class="footer-right">
+
+        <p class="footer-company-about">
+            <span>About the company</span>
+            Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+        </p>
+
+        <div class="footer-icons">
+
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-github"></i></a>
+
+        </div>
+
+    </div>
+
+</footer>
+</body>
+</html>

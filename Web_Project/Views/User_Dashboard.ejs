@@ -1,0 +1,236 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+
+    <style>
+        body
+        {
+            background: url('/background_blur.png');
+            overflow: hidden;
+        }
+        .container
+        {
+            width: 80%;
+            margin: 0 auto;
+            margin-bottom: 100px;
+
+        }
+        .first
+        {
+            float: left;
+            margin: 3px;
+            box-sizing: border-box;
+            display: flex;
+            transition: 0.5s;
+            opacity: 0.6;
+        }
+        .one
+        {
+            width: 15%;
+            background-color: brown;
+            height: 100px;
+        }
+
+        i
+        {
+            font-size: 50px;
+            padding-right: 5px;
+
+        }
+        .first:hover
+        {
+            box-shadow: 5px 5px 5px black;
+            opacity: 0.8;
+        }
+        .two
+        {
+            width: 15%;
+            background-color: #fff;
+            height: 100px;
+            background: rgba(0,0,0,0.4)
+        }
+        .three
+        {
+            width: 30.6%;
+            background-color: yellowgreen;
+            height: 100px;
+        }
+        .four
+        {
+            width: 30.6%;
+            background-color: red;
+            height: 100px;
+        }
+        .five
+        {
+            width: 15%;
+            background-color: purple;
+            height: 100px;
+        }
+
+        .six
+        {
+            width: 15%;
+            background-color:yellow;
+            height: 100px;
+        }
+        .seven
+        {
+            width: 30.6%;
+            background-color: purple;
+            height: 100px;
+        }
+        .eight
+        {
+            width: 30.6%;
+            background-color: brown;
+            height: 100px;
+        }
+        .nine
+        {
+            width: 30.6%;
+            background-color: brown;
+            height: 100px;
+        }
+        .ten
+        {
+            width: 30.6%;
+            background-color: green;
+            height: 100px;
+        }
+        .eleven
+        {
+            width: 15%;
+            background-color :yellow;
+            height: 100px;
+        }
+        .twelve
+        {
+            width: 15%;
+            background-color: green;
+            height: 100px;
+        }
+        .thirteen
+        {
+            width: 30.6%;
+            background-color: green;
+            height: 100px;
+        }
+        .fourteen
+        {
+            width: 30.6%;
+            background-color: lightblue;
+            height: 100px;
+        }
+        .fifteen
+        {
+            width: 15%;
+            background-color: lightpink;
+            height: 100px;
+        }
+        .sixteen
+        {
+            width: 15%;
+            background-color: green;
+            height: 100px;
+        }
+        .user
+        {
+
+            margin-left: 5%;
+            margin-top: 1%;
+            font-size: 25px;
+        }
+
+        .user div       {
+            color: aliceblue;
+            float: left;
+            padding: 5%;
+            box-sizing: border-box;
+            margin: 0;
+        }
+        .user .Name       {
+            color: aliceblue;
+            float: left;
+            padding-top: 10%;
+            box-sizing: border-box;
+            margin: 0;
+            padding-left: 0;
+        }
+        p, a
+        {
+            color: aliceblue;
+            padding: 5%;
+            box-sizing: border-box;
+            margin: 0;
+            width:100%;
+        }
+        .clear
+        {
+            clear: left;
+        }
+
+    </style>
+</head>
+<body>
+<div class="user">
+    <div><img src="/<%=User[0].Image%>" width="150px" height="150px" style="border-radius:50% "></div>
+    <div class="Name"><%= User[0].FullName %></div>
+</div>
+<div class="clear"></div>
+<div class="container">
+    <div class="first one">
+
+        <p><i class="fab fa-blogger-b"></i>Blog</p>
+    </div>
+    <div class="first two">
+        <p><a href="/Home"><i class="fas fa-home"></i>Home</a></p>
+
+    </div>
+    <div class="first three">
+        <p><i class="fas fa-id-card"></i> User Profile</p>
+
+    </div>
+    <div class="first four">
+        <p><a href="/addBlog"><i class="fab fa-buromobelexperte"></i> Add a Blog</a></p>
+
+    </div>
+    <br>
+    <div class="first five">
+        <p><a href="/Video_catalog"><i class="fas fa-video"></i> Videos</a></p>
+    </div>
+    <div class="first six">
+
+    </div>
+    <div class="first seven">
+        <p><strong>Notification:</strong></p>
+        <%if(User[0].notification>0){%>
+        <p>You have <%=User[0].notification%> comments on your blog<br>
+    <%}%>
+    </div>
+    <div class="first eight">
+
+        <p><a href="/Index"><i class="fas fa-users"></i> Lets Talk</a></p>
+
+    </div>
+    <br>
+    <div class="first nine">
+        <p><i class="fas fa-address-book"></i> Share Your story</p>
+
+    </div>
+    <div class="first ten">
+        <p><a href="/VideoUpload"><i class="fas fa-film"></i> Upload Videos</a></p>
+    </div>
+    <div class="first eleven">
+
+    </div>
+    <div class="first twelve">
+        <a href="/Log_out"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+
+    </div>
+    <br>
+
+</div>
+
+</body>
+</html>
